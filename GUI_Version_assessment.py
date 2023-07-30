@@ -42,7 +42,7 @@ def enter_data():
             print("First name:", firstname, "Last name:", lastname)
             print("gender:", gender, "Age:", age, "Year Level:", year)
             print("# Experience:", numexperience, "# Hours:", numhours)
-            print("Registration status:", registration_status)
+            print("Filled Up Details:", registration_status)
             print("------------------------------------------")
 
             # Creating or connecting to the SQLite database
