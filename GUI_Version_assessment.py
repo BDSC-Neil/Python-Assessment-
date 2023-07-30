@@ -1,3 +1,6 @@
+#Credits to Code FIrst With Hala
+#Link to her code tutorial: https://www.youtube.com/watch?v=vusUfPBsggw&t=709s
+
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
