@@ -36,7 +36,7 @@ def get_int(question, lowest, highest):
         try:
             answer = int(input(question))
             if answer < lowest or answer > highest:#Limits the number from getting over 10 
-                print("Invalid amount, allowed is between {} and {} years".format(lowest, highest))
+                print("Invalid amount, allowed is between {} and {}".format(lowest, highest))
                 sys.exit() #This is so when the age is invalid the program will force to stop thats why I imported sys
             return answer
         except ValueError:
