@@ -15,14 +15,14 @@ def enter_data():
         lastname = last_name_entry.get()
 
         if firstname and lastname:
-            title = title_combobox.get()
+            gender = gender_combobox.get()
             age = int(age_spinbox.get())  # Convert to integer
             year = int(year_combobox.get())  # Convert to integer
 
             # Check if age is outside the valid range (18 to 30)
             if age < 18 or age > 30:
                 message = f"Sorry {firstname} {lastname}, but your age is invalid for this application."
-                tkinter.messagebox.showwarning(title="Invalid Details", message=message)
+                tkinter.messagebox.showwarning(gender="Invalid Details", message=message)
                 window.destroy()  # Close the tkinter window and terminate the program
                 return
 
@@ -34,13 +34,13 @@ def enter_data():
             # Check if experience or hours is below 3
             if int(numexperience) < 3 or int(numhours) < 3:
                 message = f"Sorry {firstname} {lastname}, but some of your details are invalid for this application."
-                tkinter.messagebox.showwarning(title="Invalid Details", message=message)
+                tkinter.messagebox.showwarning(gender="Invalid Details", message=message)
                 window.destroy()  # Close the tkinter window and terminate the program
                 return
 
             # Printing the collected data (for testing purposes)
             print("First name:", firstname, "Last name:", lastname)
-            print("Title:", title, "Age:", age, "Year Level:", year)
+            print("Gender:", gender, "Age:", age, "Year Level:", year)
             print("# Experience:", numexperience, "# Hours:", numhours)
             print("Registration status:", registration_status)
             print("------------------------------------------")
@@ -50,16 +50,16 @@ def enter_data():
 
             # Creating a table for Student Data if it doesn't exist already
             table_create_query = '''CREATE TABLE IF NOT EXISTS Student_Data 
-                    (firstname TEXT, lastname TEXT, title TEXT, age INT, year INT, 
+                    (firstname TEXT, lastname TEXT, gender TEXT, age INT, year INT, 
                     registration_status TEXT, num_courses INT, num_semesters INT)
             '''
             conn.execute(table_create_query)
 
             # Inserting the collected data into the table
-            data_insert_query = '''INSERT INTO Student_Data (firstname, lastname, title, 
+            data_insert_query = '''INSERT INTO Student_Data (firstname, lastname, gender, 
             age, year, registration_status, num_courses, num_semesters) VALUES 
             (?, ?, ?, ?, ?, ?, ?, ?)'''
-            data_insert_tuple = (firstname, lastname, title,
+            data_insert_tuple = (firstname, lastname, gender,
                                  age, year, registration_status, numexperience, numhours)
             cursor = conn.cursor()
             cursor.execute(data_insert_query, data_insert_tuple)
@@ -71,13 +71,13 @@ def enter_data():
             conn.close()
 
         else:
-            tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
+            tkinter.messagebox.showwarning(gender="Error", message="First name and last name are required.")
     else:
-        tkinter.messagebox.showwarning(title="Error", message="You have not accepted the terms")
+        tkinter.messagebox.showwarning(gender="Error", message="You have not accepted the terms")
 
 # Creating the main tkinter window
 window = tkinter.Tk()
-window.title("Data Entry Form")
+window.gender("Data Entry Form")
 
 # Creating a frame to hold all the widgets
 frame = tkinter.Frame(window)
@@ -88,7 +88,7 @@ frame.pack()
 user_info_frame = tkinter.LabelFrame(frame, text="User Information")
 user_info_frame.grid(row=0, column=0, padx=20, pady=10)
 
-# Widgets to collect user's first name, last name, title, age, and year level
+# Widgets to collect user's first name, last name, gender, age, and year level
 first_name_label = tkinter.Label(user_info_frame, text="First Name")
 first_name_label.grid(row=0, column=0)
 last_name_label = tkinter.Label(user_info_frame, text="Last Name")
@@ -99,10 +99,10 @@ last_name_entry = tkinter.Entry(user_info_frame)
 first_name_entry.grid(row=1, column=0)
 last_name_entry.grid(row=1, column=1)
 
-title_label = tkinter.Label(user_info_frame, text="Title")
-title_combobox = ttk.Combobox(user_info_frame, values=["", "Mr.", "Ms.", "Dr."])
-title_label.grid(row=0, column=2)
-title_combobox.grid(row=1, column=2)
+gender_label = tkinter.Label(user_info_frame, text="Title")
+gender_combobox = ttk.Combobox(user_info_frame, values=["", "Mr.", "Ms.", "Dr."])
+gender_label.grid(row=0, column=2)
+gender_combobox.grid(row=1, column=2)
 
 age_label = tkinter.Label(user_info_frame, text="Age")
 age_spinbox = tkinter.Spinbox(user_info_frame, from_=0, to=100)
