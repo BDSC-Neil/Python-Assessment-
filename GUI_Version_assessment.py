@@ -125,7 +125,7 @@ courses_frame.grid(row=1, column=0, sticky="news", padx=20, pady=10)
 # Widgets to collect registration status, programming experience (number of courses), and working hours
 registered_label = tkinter.Label(courses_frame, text="Registration Status")
 reg_status_var = tkinter.StringVar(value="Not Registered")
-registered_check = tkinter.Checkbutton(courses_frame, text="Currently Registered",
+registered_check = tkinter.Checkbutton(courses_frame, text="Filled Up Details",
                                        variable=reg_status_var, onvalue="Registered", offvalue="Not registered")
 registered_label.grid(row=0, column=0)
 registered_check.grid(row=1, column=0)
