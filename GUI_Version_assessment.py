@@ -40,7 +40,7 @@ def enter_data():
 
             # Printing the collected data (for testing purposes)
             print("First name:", firstname, "Last name:", lastname)
-            print("Gender:", gender, "Age:", age, "Year Level:", year)
+            print("gender:", gender, "Age:", age, "Year Level:", year)
             print("# Experience:", numexperience, "# Hours:", numhours)
             print("Registration status:", registration_status)
             print("------------------------------------------")
@@ -77,7 +77,7 @@ def enter_data():
 
 # Creating the main tkinter window
 window = tkinter.Tk()
-window.gender("Data Entry Form")
+window.title("Coding Club Application")
 
 # Creating a frame to hold all the widgets
 frame = tkinter.Frame(window)
@@ -99,9 +99,9 @@ last_name_entry = tkinter.Entry(user_info_frame)
 first_name_entry.grid(row=1, column=0)
 last_name_entry.grid(row=1, column=1)
 
-gender_label = tkinter.Label(user_info_frame, text="Title")
-gender_combobox = ttk.Combobox(user_info_frame, values=["", "Mr.", "Ms.", "Dr."])
-gender_label.grid(row=0, column=2)
+title_label = tkinter.Label(user_info_frame, text="Gender")
+gender_combobox = ttk.Combobox(user_info_frame, values=["", "Male.", "Female.", "Non-Binary."])
+title_label.grid(row=0, column=2)
 gender_combobox.grid(row=1, column=2)
 
 age_label = tkinter.Label(user_info_frame, text="Age")
