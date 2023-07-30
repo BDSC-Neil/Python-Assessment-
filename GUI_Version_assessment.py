@@ -22,7 +22,7 @@ def enter_data():
             # Check if age is outside the valid range (18 to 30)
             if age < 18 or age > 30:
                 message = f"Sorry {firstname} {lastname}, but your age is invalid for this application."
-                tkinter.messagebox.showwarning(gender="Invalid Details", message=message)
+                tkinter.messagebox.showwarning(title="Invalid Details", message=message)
                 window.destroy()  # Close the tkinter window and terminate the program
                 return
 
@@ -34,7 +34,7 @@ def enter_data():
             # Check if experience or hours is below 3
             if int(numexperience) < 3 or int(numhours) < 3:
                 message = f"Sorry {firstname} {lastname}, but some of your details are invalid for this application."
-                tkinter.messagebox.showwarning(gender="Invalid Details", message=message)
+                tkinter.messagebox.showwarning(title="Invalid Details", message=message)
                 window.destroy()  # Close the tkinter window and terminate the program
                 return
 
@@ -71,9 +71,9 @@ def enter_data():
             conn.close()
 
         else:
-            tkinter.messagebox.showwarning(gender="Error", message="First name and last name are required.")
+            tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
     else:
-        tkinter.messagebox.showwarning(gender="Error", message="You have not accepted the terms")
+        tkinter.messagebox.showwarning(title="Error", message="You have not accepted the terms")
 
 # Creating the main tkinter window
 window = tkinter.Tk()
@@ -162,3 +162,4 @@ button.grid(row=3, column=0, sticky="news", padx=20, pady=10)
 
 # Run the tkinter main event loop
 window.mainloop()
+
